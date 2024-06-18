@@ -25,6 +25,18 @@ public static class DiExtentions
             
         var connectionString = configuration.GetConnectionString("PostgresContainer");
 
+        var dataContext = new DataContext();
+        dataContext.Database.EnsureCreated();
+
+        try
+        {
+            dataContext.Database.Migrate();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+        
         services.AddDbContext<DataContext>(options => options.UseNpgsql(connectionString));
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();

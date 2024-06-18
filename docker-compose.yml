@@ -1,0 +1,73 @@
+﻿version: '3.9'
+
+networks:
+  main_network:
+    driver: bridge
+
+services:
+  traintimings.api:
+    image: traintimings.api
+    build:
+      context: .
+      dockerfile: src/TrainTimings.Api/Dockerfile
+    ports:
+      - 5050:5050
+    networks:
+      - main_network
+    depends_on:
+      - database
+      - KeycloakTT
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5050
+      - ConnectionString=host=postgres-container;port=5432;database=TrainTiming;Username=postgres;Password=toor;
+      - KeycloakUrl=http://keycloak:8080
+
+  KeycloakTT:
+    image: quay.io/keycloak/keycloak:20.0.2
+    container_name: keycloakTT
+    command:
+      - start --auto-build --db postgres --hostname-strict-https false --hostname-strict false --proxy edge --http-enabled true --import-realm --spi-user-profile-legacy-user-profile-read-only-attributes *_RES_ACCESS_MODE
+    environment:
+      KC_DB_URL: jdbc:postgresql://database:5432/Keycloak
+      KC_DB_USERNAME: postgres
+      KC_DB_PASSWORD: toor
+      KC_DB_SCHEMA: public
+      KC_FEATURES: preview
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    networks:
+      - main_network
+    ports:
+      - 9191:8080
+    depends_on:
+      - database
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://0.0.0.0:8080/realms/master" ]
+      start_period: 10s
+      interval: 30s
+      retries: 3
+      timeout: 5s
+
+  database:
+    image: postgres:16.2
+    container_name: postgres-container
+    ports:
+      - 5555:5432
+    networks:
+      main_network:
+    healthcheck:
+      test: pg_isready -d postgres
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=toor
+      - POSTGRES_DB=Keycloak
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+        
+volumes:
+  postgres-data:

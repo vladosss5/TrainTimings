@@ -27,7 +27,7 @@ public partial class DataContext : DbContext
     public virtual DbSet<TypesFollowing> TypesFollowings { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseNpgsql("Server=localhost;port=6543;user id=postgres;password=toor;database=TrainTiming;");
+        => optionsBuilder.UseNpgsql("Server=postgres-container;port=5432;user id=postgres;password=toor;database=TrainTiming;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
