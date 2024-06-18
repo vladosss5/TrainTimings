@@ -13,7 +13,6 @@
 
     <ItemGroup>
       <PackageReference Include="AutoMapper" Version="13.0.1" />
-      <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
       <PackageReference Include="Keycloak.AuthServices.Authentication" Version="2.5.2" />
       <PackageReference Include="Keycloak.AuthServices.Authorization" Version="2.5.2" />
       <PackageReference Include="Keycloak.AuthServices.Sdk" Version="2.5.2" />
@@ -22,16 +21,15 @@
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.6" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.6">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
       <PackageReference Include="Npgsql" Version="8.0.3" />
       <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Helpers\" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     </ItemGroup>
 
 </Project>

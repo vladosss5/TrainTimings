@@ -8,16 +8,22 @@
 
     <ItemGroup>
         <PackageReference Include="AutoMapper" Version="13.0.1" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="Serilog" Version="4.0.0" />
         <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\TrainTimings.Application\TrainTimings.Application.csproj" />
       <ProjectReference Include="..\TrainTimings.Core\TrainTimings.Core.csproj" />
       <ProjectReference Include="..\TrainTimings.Persistence\TrainTimings.Persistence.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Controllers\" />
+      <Folder Include="DTOs\" />
     </ItemGroup>
 
 </Project>
