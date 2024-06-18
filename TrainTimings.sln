@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainTimings.Api", "src\TrainTimings.Api\TrainTimings.Api.csproj", "{52D8160E-D3D0-4C2B-A0FE-CDBA30436E09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainTimings.Core", "src\TrainTimings.Core\TrainTimings.Core.csproj", "{E7023E9C-598C-47B0-8411-6DB2F4053AE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainTimings.Application", "src\TrainTimings.Application\TrainTimings.Application.csproj", "{FC18EFFE-39B3-487A-8123-472B2E234C6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainTimings.Persistence", "src\TrainTimings.Persistence\TrainTimings.Persistence.csproj", "{A7B3D604-BA16-4A8C-B2DF-15F833F556E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52D8160E-D3D0-4C2B-A0FE-CDBA30436E09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52D8160E-D3D0-4C2B-A0FE-CDBA30436E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52D8160E-D3D0-4C2B-A0FE-CDBA30436E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52D8160E-D3D0-4C2B-A0FE-CDBA30436E09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7023E9C-598C-47B0-8411-6DB2F4053AE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7023E9C-598C-47B0-8411-6DB2F4053AE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7023E9C-598C-47B0-8411-6DB2F4053AE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7023E9C-598C-47B0-8411-6DB2F4053AE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC18EFFE-39B3-487A-8123-472B2E234C6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC18EFFE-39B3-487A-8123-472B2E234C6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC18EFFE-39B3-487A-8123-472B2E234C6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC18EFFE-39B3-487A-8123-472B2E234C6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7B3D604-BA16-4A8C-B2DF-15F833F556E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7B3D604-BA16-4A8C-B2DF-15F833F556E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7B3D604-BA16-4A8C-B2DF-15F833F556E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7B3D604-BA16-4A8C-B2DF-15F833F556E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
