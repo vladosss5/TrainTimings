@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using System.Net.Http.Headers;
+using System.Text;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
 using TrainTimings.Application.Interfaces.IServices;
 using TrainTimings.Persistence.Helpers;
@@ -35,5 +37,14 @@ public class AccountService : IAccountService
         var token = (string)responseString["access_token"];
 
         return token;
+    }
+
+    public async Task ChangePasswordAsync(string username, string oldPassword, string newPassword)
+    {
+        var token = await LoginAsync(username, oldPassword);
+        var url = $"http://keycloak-server/auth/admin/realms/MyRealm/users/{username}";
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        var content = new StringContent($"password={newPassword}", Encoding.UTF8, "application/x-www-form-urlencoded");
+        var response = await client.PutAsync(url, content);
     }
 }
