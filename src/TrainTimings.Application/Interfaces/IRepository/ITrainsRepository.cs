@@ -5,6 +5,7 @@ namespace TrainTimings.Application.Interfaces.IRepository;
 public interface ITrainsRepository
 {
     public Task<Train> GetTrainByIdAsync(int id);
+    public Task<Train> GetTrainByNumberAsync(string number);
     public Task<List<Train>> GetAllTrainsAsync();
     public Task<Train> CreateTrainAsync(Train train);
     public Task<Train> UpdateTrainAsync(Train train);

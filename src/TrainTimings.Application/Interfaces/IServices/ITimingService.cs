@@ -2,7 +2,7 @@
 
 namespace TrainTimings.Application.Interfaces.IServices;
 
-public interface ITiminggService
+public interface ITimingService
 {
     public Task<Timing> CreateTimingAsync(Timing timing);
     public Task<Timing> UpdateTimingAsync(Timing timing);

@@ -24,8 +24,9 @@ namespace TrainTimings.Api.Controllers
         }
         
         [HttpPost("change-password")]
-        public async Task<IActionResult> ChangePassword()
+        public async Task<IActionResult> ChangePassword(ChangePasswordDto request)
         {
+            await _accountService.ChangePasswordAsync(request.Username, request.OldPassword, request.NewPassword);
             return Ok();
         }
     }

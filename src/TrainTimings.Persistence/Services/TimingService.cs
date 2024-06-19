@@ -5,11 +5,11 @@ using TrainTimings.Core.Models;
 
 namespace TrainTimings.Persistence.Services;
 
-public class TiminggService : ITiminggService
+public class TimingService : ITimingService
 {
     private readonly IUnitOfWork _unitOfWork;
     
-    public TiminggService(IUnitOfWork unitOfWork)
+    public TimingService(IUnitOfWork unitOfWork)
     {
         _unitOfWork = unitOfWork;
     }

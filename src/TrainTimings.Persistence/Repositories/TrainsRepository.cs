@@ -19,6 +19,11 @@ public class TrainsRepository : ITrainsRepository
         return await _dataContext.Trains.FirstOrDefaultAsync(x => x.Id == id);
     }
 
+    public async Task<Train> GetTrainByNumberAsync(string number)
+    {
+        return await _dataContext.Trains.FirstOrDefaultAsync(x => x.Number == number);
+    }
+
     public async Task<List<Train>> GetAllTrainsAsync()
     {
         return await _dataContext.Trains.ToListAsync();

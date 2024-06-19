@@ -5,6 +5,7 @@ namespace TrainTimings.Application.Interfaces.IRepository;
 public interface ICityRepository
 {
     public Task<City> GetCityByIdAsync(int id);
+    public Task<City> GetCityByNameAsync(string name);
     public Task<List<City>> GetAllCitiesAsync();
     public Task<City> CreateCityAsync(City city);
     public Task<City> UpdateCityAsync(City city);
