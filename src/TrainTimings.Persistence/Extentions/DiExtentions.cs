@@ -107,11 +107,12 @@ public static class DiExtentions
             .AddAuthorizationBuilder()
             .AddPolicy(
                 "AdminPolicy",
-                policy => policy.RequireRole("Admin")
-            )
+                policy => policy.RequireRole("Admin"))
             .AddPolicy(
-                "DefaultPolicy", 
-                policy => policy.RequireRole("Default"));
+                "DispatcherPolicy", 
+                policy => policy.RequireRole("Dispatcher"))
+            .AddPolicy("MachinistPolicy", 
+                policy => policy.RequireRole("Machinist"));
 
         return services;
     }
