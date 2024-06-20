@@ -23,7 +23,7 @@ public static class DiExtentions
     {
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             
-        var connectionString = configuration.GetConnectionString("DefaultConnection");
+        var connectionString = configuration.GetConnectionString("PostgresContainer");
 
         var dataContext = new DataContext();
         dataContext.Database.EnsureCreated();

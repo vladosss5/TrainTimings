@@ -2,6 +2,7 @@
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
+using TrainTimings.Application.Exceptions;
 using TrainTimings.Application.Interfaces.IServices;
 using TrainTimings.Persistence.Helpers;
 
@@ -41,10 +42,10 @@ public class AccountService : IAccountService
 
     public async Task ChangePasswordAsync(string username, string oldPassword, string newPassword)
     {
-        var token = await LoginAsync(username, oldPassword);
-        var url = $"http://keycloak-server/auth/admin/realms/MyRealm/users/{username}";
-        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-        var content = new StringContent($"password={newPassword}", Encoding.UTF8, "application/x-www-form-urlencoded");
-        var response = await client.PutAsync(url, content);
+        if (oldPassword == newPassword)
+            throw new LoginException();
+        
+        var keycloakService = new KeycloakService();
+        await keycloakService.ChangeUserPassword(username, oldPassword);
     }
 }
